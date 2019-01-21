@@ -4,8 +4,7 @@ var bodyParser = require('body-parser');
 
 var properties = require('./config/properties');
 
-//hero routes
-var herosRoutes = require('./config/routes');
+var Routes = require('./config/routes');
 var app = express();
 
 //configure bodyparser
@@ -33,8 +32,7 @@ app.use(function (req, res, next) {
 //app.use('/api', router);
 app.use('/', router);
 
-//call heros routing
-herosRoutes(router);
+Routes(router);
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
   ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
